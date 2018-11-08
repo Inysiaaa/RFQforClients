@@ -4,9 +4,14 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import org.assertj.core.api.SoftAssertions;
+import org.easetech.easytest.annotation.DataLoader;
+import org.easetech.easytest.annotation.Param;
+import org.easetech.easytest.loader.LoaderType;
+import org.easetech.easytest.runner.DataDrivenTestRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -19,6 +24,7 @@ import java.util.Locale;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
+@RunWith(DataDrivenTestRunner.class)
 public class AutoServiceTest {
     public ChromeDriver driver;
 
@@ -29,12 +35,18 @@ public class AutoServiceTest {
     public void setUp() {
 
         driver = CommonCode.InitializeChromeDriver();
-
         softAssertions = new SoftAssertions();
     }
 
     @Test
-    public void autoServicesForClients(){
+    @DataLoader(filePaths = "environments.csv", loaderType = LoaderType.CSV)
+    public  void testDifferentUrls(@Param(name="url") String url){
+        WebDriverRunner.setWebDriver(driver);
+        Configuration selenideConfig = new Configuration();
+        selenideConfig.timeout = 30000;
+        open(url);
+
+    /*public void autoServicesForClients(){
 
         WebDriverRunner.setWebDriver(driver);
         Configuration selenideConfig = new Configuration();
@@ -42,7 +54,7 @@ public class AutoServiceTest {
 
 
         System.out.print("[-] Открываем URL: http://rfq-qa.oltatravel.com");
-        open("http://rfq-qa.oltatravel.com");
+        open("http://rfq-qa.oltatravel.com");*/
         CommonCode.WaitForPageToLoad(driver);
         System.out.println(CommonCode.OK);
 
