@@ -20,12 +20,6 @@ public class CommonCode {
 
     public static final String overallLoadingIndicatorREG = "//span[contains(text(),'Loading')]";
 
-    public static void WaitForProgruzka() {
-
-        System.out.print("[-] Ждём прогрузку...");
-        $(By.xpath(overallLoadingIndicatorREG)).shouldNot(exist);
-        System.out.println(OK);
-    }
 
     public static void WaitForProgruzkaSilent() {$(By.xpath(overallLoadingIndicatorREG)).shouldNot(exist); }
 

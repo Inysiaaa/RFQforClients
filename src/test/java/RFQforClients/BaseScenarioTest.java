@@ -21,9 +21,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.confirm;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class BaseScenarioTest {
     public ChromeDriver driver;
@@ -427,17 +425,20 @@ public class BaseScenarioTest {
         System.out.println(CommonCode.ANSI_RED +"      Кнопка включена: " + CommonCode.ANSI_RESET
                 + result + " -");
     }
-
-    //Запускаем расчёт
+        refresh();
+        CommonCode.WaitForProgruzkaSilent();
+     //Запускаем расчёт
         System.out.print("[-] Запускаем расчёт: ");
-    $(By.xpath(NewQuotationPage.Results.calculateButton)).scrollTo().click();
+        $(By.xpath(NewQuotationPage.Results.calculateButton)).scrollTo().click();
         CommonCode.WaitForProgruzkaSilent();
         System.out.println(CommonCode.OK);
-        Double currencyRate = 76.0;
+
+
+    double currencyRate = 76.0;
     Double hotelsWE;
     Double hotelsWESS;
-        System.out.println("[-] Проверяем, что цены в Totals верные:");
 
+    System.out.println("[-] Проверяем, что цены в Totals верные:");
 
         if(nowDate.getDayOfWeek().getValue() >= 1 & nowDate.getDayOfWeek().getValue()<=4){
         hotelsWE = Double.valueOf((new BigDecimal(Double.valueOf(prices.get(0).priceDBL)/2.0).setScale(0, RoundingMode.DOWN).floatValue()));
@@ -540,7 +541,6 @@ public class BaseScenarioTest {
     }
 
         System.out.println("[-] Проверяем, Export to Word: ");
-    result = "none";
     result = $(By.xpath("//div[@class=\"footer-olta-rfq\"]//div[text()='Export to Word']")).getAttribute("class");
     //System.out.println("Из Prices получили:"+priceDBLDS15+" в Totals:"+ result);
         if (!result.equals("none")){

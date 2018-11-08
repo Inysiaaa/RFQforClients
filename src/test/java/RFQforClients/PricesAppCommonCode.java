@@ -29,25 +29,12 @@ public class PricesAppCommonCode extends CommonCode {
     }
 
     public static final String servicesPriceTableXP = "//table[@id=\"service-prices\"]";
-    public static class ServicesPriceTable{
-        //public static final String firstServiceWithFixedPrice = servicesPriceTableXP + "//tbody//tr//";
 
-        public static final String ServiceStringByNumber(int number){
-            return String.valueOf("//tbody//tr"+"["+number+"]");
-        }
-
-        public static final String ServiceStringByName(String name){
-            return String.valueOf("//tbody//tr[@data-name=\""+name+"\"]");
-        }
-
-
-
-    }
 
     public static final String PRICESAPPLOGIN = "alexkudrya91@gmail.com";
     public static final String PRICESAPPPASSWORD = "password";
 
-    public class PeriodsCollection{
+   /* public class PeriodsCollection{
         public LocalDate dateFrom;
         public LocalDate dateTo;
         public int priceSGL;
@@ -70,8 +57,8 @@ public class PricesAppCommonCode extends CommonCode {
                 priceDBLWE = Integer.valueOf(data[5]);
         }
     }
-
-    public List<PeriodsCollection> SavePeriodsForACityAndHotelType(String cityName, String hotelType) {
+*/
+    /*public List<PeriodsCollection> SavePeriodsForACityAndHotelType(String cityName, String hotelType) {
 
         //Выбираем город
         System.out.print("            Выбираем город - "+cityName);
@@ -242,7 +229,7 @@ public class PricesAppCommonCode extends CommonCode {
             priceDBLWE = $(By.xpath("//div[@class=\"modal-dialog\"]//div[@class=\"modal-content\"]//form[@id=\"form-update-group-hotel-price\"]//input[@id=\"u-priceDblWe\"]")).getValue();*/
             //System.out.println(dateFrom+" "+dateTo+" "+priceSGL+" "+priceDBL+" "+priceSGLWE+" "+priceDBLWE);
 
-            dateFrom = $(By.xpath("//div[@id=\"modal-edit-individual-average-hotel-price\"]//div[@class=\"modal-dialog\"]//div[@class=\"modal-content\"]//form[@id=\"form-update-individual-average-hotel-price\"]//input[@id=\"u-dateFrom\"]")).getValue();
+          /*  dateFrom = $(By.xpath("//div[@id=\"modal-edit-individual-average-hotel-price\"]//div[@class=\"modal-dialog\"]//div[@class=\"modal-content\"]//form[@id=\"form-update-individual-average-hotel-price\"]//input[@id=\"u-dateFrom\"]")).getValue();
             dateTo = $(By.xpath("//div[@id=\"modal-edit-individual-average-hotel-price\"]//div[@class=\"modal-dialog\"]//div[@class=\"modal-content\"]//form[@id=\"form-update-individual-average-hotel-price\"]//input[@id=\"u-dateTo\"]")).getValue();
             priceSGL = $(By.xpath("//div[@id=\"modal-edit-individual-average-hotel-price\"]//div[@class=\"modal-dialog\"]//div[@class=\"modal-content\"]//form[@id=\"form-update-individual-average-hotel-price\"]//input[@id=\"u-priceSgl\"]")).getValue();
             priceDBL = $(By.xpath("//div[@id=\"modal-edit-individual-average-hotel-price\"]//div[@class=\"modal-dialog\"]//div[@class=\"modal-content\"]//form[@id=\"form-update-individual-average-hotel-price\"]//input[@id=\"u-priceDbl\"]")).getValue();
@@ -261,5 +248,5 @@ public class PricesAppCommonCode extends CommonCode {
         }
         System.out.println(OK);
         return result;
-    }
+    }*/
 }
