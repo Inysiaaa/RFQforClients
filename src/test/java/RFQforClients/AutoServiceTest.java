@@ -48,8 +48,8 @@ public class AutoServiceTest {
 
         //Вводим логин с паролем и кликаем Логин
         System.out.print("[-] Вводим логин с паролем и кликаем Логин");
-        $(By.id("username")).setValue(("test2@test.com"));
-        $(By.id("password")).setValue(("password"));
+        $(By.xpath(CommonCode.Login)).setValue(("test2@test.com"));
+        $(By.xpath(CommonCode.Password)).setValue(("password"));
         $(By.cssSelector("button[type=\"submit\"]")).click();
         System.out.println(CommonCode.OK);
 

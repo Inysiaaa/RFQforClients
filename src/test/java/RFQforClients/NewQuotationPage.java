@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 
 public class NewQuotationPage {
+
     public final static String newQuotationButton = "#content div[class=\"buttons-row\"] button[class=\"add-quotation-btn\"]";
 
     public final static String tutorialPopupXP = "//div[@id=\"modal-tutorial-video\"]";

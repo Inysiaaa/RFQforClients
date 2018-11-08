@@ -78,9 +78,9 @@ public class BaseScenarioTest {
 
     //Вводим логин с паролем и кликаем Логин
         System.out.print("[-] Вводим логин с паролем и кликаем Логин");
-    $(By.id("username")).setValue(("test"));
-    $(By.id("password")).setValue(("password"));
-    $(By.cssSelector("button[type=\"submit\"]")).click();
+        $(By.xpath(CommonCode.Login)).setValue(("test"));
+        $(By.xpath(CommonCode.Password)).setValue(("password"));
+        $(By.cssSelector("button[type=\"submit\"]")).click();
         System.out.println(CommonCode.OK);
 
     //Ждём пока загрузится страница и проподёт "Loading..."
@@ -98,35 +98,34 @@ public class BaseScenarioTest {
 
     //Открываем групповые цены на отели
         System.out.print("[-] Открываем групповые цены");
-    $(By.id("group")).click();
+        $(By.id("group")).click();
     //Открываем текущий день
-    DateTimeFormatter formatForDate = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+        DateTimeFormatter formatForDate = DateTimeFormatter.ofPattern("dd-MM-yyyy")
             .withLocale(Locale.UK).withZone(ZoneOffset.UTC);
-    LocalDate nowDate = LocalDate.now();
+        LocalDate nowDate = LocalDate.now();
         System.out.println(CommonCode.OK);
 
     //Открываем Москву
         System.out.print("[-] Открываем Москву");
-    $(By.cssSelector(PricesAppCommonCode.CitiesSelection.MSKButton)).scrollTo().click();
+        $(By.cssSelector(PricesAppCommonCode.CitiesSelection.MSKButton)).scrollTo().click();
         CommonCode.WaitForProgruzkaSilent();
         System.out.println(CommonCode.OK);
 
     //Открываем текущий год
         System.out.print("[-] Открываем текущий год");
-    $(By.xpath(PricesAppCommonCode.YearSelection.year2018XP)).scrollTo().click();
+        $(By.xpath(PricesAppCommonCode.YearSelection.year2018XP)).scrollTo().click();
         CommonCode.WaitForProgruzkaSilent();
         System.out.println(CommonCode.OK);
 
     //Выставляем тип отеля - Hotel 4* central
         System.out.print("[-] Выставляем тип отеля - Hotel 4* central");
-    //$(By.xpath("//select[@id=\"hotel-type-filter\"]")).selectOptionContainingText("Hotel 4* central");
-    $(By.xpath("//div[@id=\"switch-hotel-type\"]//button[contains(text(),'Hotel 4* central')]")).click();
+        $(By.xpath("//div[@id=\"switch-hotel-type\"]//button[contains(text(),'Hotel 4* central')]")).click();
         CommonCode.WaitForProgruzkaSilent();
         System.out.println(CommonCode.OK);
 
     //Открываем попап с ценами
         System.out.print("[-] Открываем попап с ценами");
-    $(By.xpath("//div[@id=\"content\"]//div[@id=\"hotel-calendar\"]//div[@data-year=\"2018\"]" +
+        $(By.xpath("//div[@id=\"content\"]//div[@id=\"hotel-calendar\"]//div[@data-year=\"2018\"]" +
             "//div//table//tbody//tr" +
             "//td[@data-date=\"2018-08-01\"]")).click();
 
@@ -134,7 +133,7 @@ public class BaseScenarioTest {
 
     //Сохраняем цены
         System.out.print("[-] Сохраняем цены");
-    ArrayList<PeriodsCollection> prices = new ArrayList<>();
+        ArrayList<PeriodsCollection> prices = new ArrayList<>();
 
     $(By.xpath("//div[@class=\"modal-dialog\"]//div[@class=\"modal-content\"]")).shouldBe(Condition.visible);
     //Сохраняем значения из попапа
@@ -279,8 +278,8 @@ public class BaseScenarioTest {
 
         //Вводим логин с паролем и кликаем Логин
         System.out.print("[-] Вводим логин с паролем и кликаем Логин");
-        $(By.id("username")).setValue(("test2@test.com"));
-        $(By.id("password")).setValue(("password"));
+        $(By.xpath(CommonCode.Login)).setValue(("test2@test.com"));
+        $(By.xpath(CommonCode.Password)).setValue(("password"));
         $(By.cssSelector("button[type=\"submit\"]")).click();
         System.out.println(CommonCode.OK);
 
